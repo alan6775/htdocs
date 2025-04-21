@@ -45,7 +45,6 @@ $(document).ready(function () {
 
 // Page show event (mainly for debugging)
 $(window).on('pageshow', function () {
-    console.log('Page loaded event triggered');
         // Initial state
         $navClose.addClass('hidden');
         $mobileNav.addClass('hidden');
