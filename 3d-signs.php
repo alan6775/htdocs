@@ -148,4 +148,5 @@ output_breadcrumbs($breadcrumbs);
 <?php
 
 output_footer('<script src="/js/lightbox.js"></script>');
+
 ?>
