@@ -24,19 +24,25 @@ output_breadcrumbs($breadcrumbs);
         <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <!-- Project 1 -->
             <figure class="group relative overflow-hidden rounded-lg shadow-lg gallery-img" data-description = "This eye-catching custom sign crafted for The Little Greek combines classic elegance with modern design, showcasing bold, dimensional lettering that prominently highlights the brand's identity. The sleek, sophisticated black finish contrasts beautifully with the minimalist aesthetic, providing exceptional visibility and visual impact. Ideal for both indoor and outdoor environments, this signage not only enhances brand presence but also sets a distinctive and welcoming tone for customers.">
-                <img src="images/greek-food-trailer.jpg" alt="Food trailer with 'GREEK' illuminated 3D sign at night" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                <div class="h-[300px]">
+                    <img src="images/greek-food-trailer.jpg" alt="Food trailer with 'GREEK' illuminated 3D sign at night" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                </div>
                 <figcaption class="absolute inset-0 flex items-end bg-gradient-to-t from-slate-900/80 via-slate-800/20 to-transparent p-4 text-sm text-white opacity-80 group-hover:opacity-100 transition-opacity duration-300"><span>Face‑lit letters for <strong>The Little Greek Grill</strong></span></figcaption>
             </figure>
 
             <!-- Project 2 -->
             <figure class="group relative overflow-hidden rounded-lg shadow-lg gallery-img">
+            <div class="h-[300px]">    
                 <img src="images/seaview-hotel.jpg" alt="Halo‑lit stainless hotel sign reading 'Seaview Hotel'" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
                 <figcaption class="absolute inset-0 flex items-end bg-gradient-to-t from-slate-900/80 via-slate-800/20 to-transparent p-4 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span>Halo‑lit stainless letters for <strong>Seaview Hotel</strong></span></figcaption>
             </figure>
 
             <!-- Project 3 -->
             <figure class="group relative overflow-hidden rounded-lg shadow-lg gallery-img">
+            <div class="h-[300px]">
                 <img src="images/soft2bet-sign.jpg" alt="Indoor exhibition logo sign lit in white and green for Soft2Bet" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+            </div>
                 <figcaption class="absolute inset-0 flex items-end bg-gradient-to-t from-slate-900/80 via-slate-800/20 to-transparent p-4 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span>Expo logo for <strong>Soft2Bet</strong></span></figcaption>
             </figure>
         </div>
