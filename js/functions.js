@@ -58,5 +58,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('page:load', () => {
-console.log('Page loaded event triggered'); // Debugging line
+    console.log('Page loaded event triggered'); // Debugging line
 });
