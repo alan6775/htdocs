@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Skip existing files and directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Check if .php exists
+RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+RewriteRule ^([a-zA-Z0-9\-_\/]+)$ $1.php [L]
+
+# If not, try .html
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^([a-zA-Z0-9\-_\/]+)$ $1.html [L]
