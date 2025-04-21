@@ -84,7 +84,7 @@ output_breadcrumbs($breadcrumbs);
                 <textarea id="message" name="message" rows="5" required placeholder="Tell us more about your project or enquiry…" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2"></textarea>
             </div>
             <div class="text-center">
-                <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-700 hover:bg-indigo-800 text-white font-semibold rounded-lg shadow-md transition">
+                <button type="submit" class="inline-flex items-center justify-center gap-2 px-6 py-3 bg-sky-700 hover:bg-indigo-800 text-white font-semibold rounded-lg shadow-md transition" id = "contact-submit">
                     ✉️ Send Message
                 </button>
             </div>
