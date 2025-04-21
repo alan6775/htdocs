@@ -1,5 +1,19 @@
 RewriteEngine On
 
+# Serve WebP if supported and available
+RewriteCond %{HTTP_ACCEPT} image/webp
+RewriteCond %{REQUEST_FILENAME} (.+)\.(jpe?g|png)$
+RewriteCond %{DOCUMENT_ROOT}/%1.webp -f
+RewriteRule ^(.+)\.(jpe?g|png)$ %{REQUEST_URI}.webp [T=image/webp,E=accept:1,L]
+
+<IfModule mod_headers.c>
+  Header append Vary Accept env=REDIRECT_accept
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+</IfModule>
+
 # Skip existing files and directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
@@ -11,3 +25,11 @@ RewriteRule ^([a-zA-Z0-9\-_\/]+)$ $1.php [L]
 # If not, try .html
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^([a-zA-Z0-9\-_\/]+)$ $1.html [L]
+
+AddType image/webp .webp
+
+# Check if browser supports WebP
+RewriteCond %{HTTP_ACCEPT} image/webp
+
+# Rewrite any .jpg request to .webp
+RewriteRule ^(.*)\.jpg$ $1.webp [T=image/webp,E=accept:1,L]
