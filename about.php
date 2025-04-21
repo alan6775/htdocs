@@ -8,7 +8,7 @@ output_header();
     <!-- Hero / Tagline -->
     <section class="relative bg-gradient-to-r from-sky-700 to-indigo-800 pt-32 pb-12 text-center text-white">
         <h1 class="mx-auto max-w-4xl px-4 text-4xl font-extrabold tracking-tight md:text-5xl">Crafting Illuminated 3D Signs</h1>
-        <p class="mx-auto mt-4 max-w-2xl px-4 text-lg">TEST Family‑run in Cornwall, engineering logos that shine – day & night.</p>
+        <p class="mx-auto mt-4 max-w-2xl px-4 text-lg">Family‑run in Cornwall, engineering logos that shine – day & night.</p>
     </section>
 <?php
 $breadcrumbs = [
