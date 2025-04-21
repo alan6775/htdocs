@@ -1,52 +1,63 @@
-const imgs = document.querySelectorAll('.gallery-img');
-const lightbox = document.getElementById('lightbox');
-const lightboxImg = document.getElementById('lightboxImg');
-const lightboxCaption = document.getElementById('lightboxCaption');
-const lightboxClose = document.getElementById('lightboxClose');
-const lightboxDescription = document.createElement('p'); // Create a description element
-lightboxDescription.className = 'mt-2 text-sm text-slate-400';
-lightbox.appendChild(lightboxDescription); // Append it to the lightbox
+$(document).ready(function () {
+    const $lightbox = $('#lightbox');
+    const $lightboxImg = $('#lightboxImg');
+    const $lightboxCaption = $('#lightboxCaption');
+    const $lightboxClose = $('#lightboxClose');
+    const $body = $('body');
 
-imgs.forEach(wrapper => wrapper.addEventListener('click', () => {
-    const img = wrapper.querySelector('img');
-    lightboxImg.src = img.src;
-    const captionEl = wrapper.querySelector('figcaption span');
-    lightboxCaption.textContent = captionEl ? captionEl.textContent : img.alt;
-    lightboxDescription.textContent = wrapper.dataset.description || '';
-    lightbox.classList.remove('hidden');
-    document.body.classList.add('overflow-hidden');
+    let isManualClose = false;
 
-    history.pushState({ lightbox: true }, ''); // Push state when lightbox opens
-}));
+    // Create and append description element once
+    const $lightboxDescription = $('<p>', {
+        class: 'mt-2 text-sm text-slate-400'
+    }).appendTo($lightbox);
 
-const closeLightbox = () => {
-    lightbox.classList.add('hidden');
-    lightboxImg.src = '';
-    lightboxCaption.textContent = '';
-    lightboxDescription.textContent = '';
-    document.body.classList.remove('overflow-hidden');
+    $('.gallery-img').on('click', function () {
+        const $img = $(this).find('img');
+        const captionText = $(this).find('figcaption span').text() || $img.attr('alt');
+        const description = $(this).data('description') || '';
 
-    if (history.state && history.state.lightbox) {
-        history.back(); // Go back one step in history if lightbox state
-    }
-};
+        $lightboxImg.attr('src', $img.attr('src'));
+        $lightboxCaption.text(captionText);
+        $lightboxDescription.text(description);
 
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
-});
+        $lightbox.removeClass('hidden');
+        $body.addClass('overflow-hidden');
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
-});
-lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox || e.target === lightboxClose) closeLightbox();
-});
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
-});
+        history.pushState({ lightbox: true }, '');
+    });
 
-window.addEventListener('popstate', (e) => {
-    if (lightbox && !lightbox.classList.contains('hidden')) {
-        closeLightbox();
-    }
+    const closeLightbox = () => {
+        $lightbox.addClass('hidden');
+        $lightboxImg.attr('src', '');
+        $lightboxCaption.text('');
+        $lightboxDescription.text('');
+        $body.removeClass('overflow-hidden');
+
+        if (!isManualClose && history.state && history.state.lightbox) {
+            history.back();
+        }
+    };
+
+    $lightbox.on('click', function (e) {
+        if (e.target === this || e.target === $lightboxClose[0]) {
+            isManualClose = true;
+            closeLightbox();
+            isManualClose = false;
+        }
+    });
+
+    $(document).on('keydown', function (e) {
+        if (e.key === 'Escape' && !$lightbox.hasClass('hidden')) {
+            isManualClose = true;
+            closeLightbox();
+            isManualClose = false;
+        }
+    });
+
+    $(window).on('popstate', function () {
+        if (!$lightbox.hasClass('hidden')) {
+            closeLightbox();
+        }
+    });
 });
