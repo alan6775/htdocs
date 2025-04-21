@@ -57,6 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
     highlightActiveNav();
 });
 
-document.addEventListener('page:load', () => {
+document.addEventListener('pageshow', () => {
     console.log('Page loaded event triggered'); // Debugging line
 });
