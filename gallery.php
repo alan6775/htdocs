@@ -39,12 +39,6 @@ output_breadcrumbs($breadcrumbs);
                 <img src="images/soft2bet-sign.jpg" alt="Indoor exhibition logo sign lit in white and green for Soft2Bet" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                 <figcaption class="absolute inset-0 flex items-end bg-gradient-to-t from-slate-900/80 via-slate-800/20 to-transparent p-4 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span>Expo logo for <strong>Soft2Bet</strong></span></figcaption>
             </figure>
-
-            <!-- Project 4 -->
-            <figure class="group relative overflow-hidden rounded-lg shadow-lg gallery-img">
-                <img src="images/bakery-shop.jpg" alt="Bakery storefront with pink illuminated 3D sign 'The Little Bakery'" class="h-full w-full cursor-zoom-in object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                <figcaption class="absolute inset-0 flex items-end bg-gradient-to-t from-slate-900/80 via-slate-800/20 to-transparent p-4 text-sm text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"><span>Front‑lit letters for <strong>The Little Bakery</strong></span></figcaption>
-            </figure>
         </div>
     </section>
 
