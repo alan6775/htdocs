@@ -2,6 +2,7 @@ const $navToggle = $('#navToggle');
 const $mobileNav = $('#mobileNav');
 const $navClose = $('#navToggleClose');
 const $header = $('#site-header');
+
 $(document).ready(function () {
     // Initial state
     $navClose.addClass('hidden');
