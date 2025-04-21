@@ -49,7 +49,8 @@ output_breadcrumbs($breadcrumbs);
     </section>
 
     <!-- CTA -->
-    <section class="p-4 mt-20 overflow-hidden bg-gradient-to-r from-sky-600 to-indigo-700 py-20 text-center text-white">
+    <section class="p-4 mt-20 overflow-hidden bg-gradient-to-r from-sky-600 to-indigo-700 py-20 text-center text-white min-h-[300px]">
+
         <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">Ready to put your logo in lights?</h2>
         <p class="mx-auto mb-8 max-w-2xl text-lg">Share your vision and we’ll fabricate a sign that demands attention.</p>
         <a href="contact.html" class="inline-block rounded-full bg-white px-10 py-4 text-sky-700 font-semibold shadow-lg ring-2 ring-white/50 hover:bg-slate-100 transition">Get a Free Quote</a>
