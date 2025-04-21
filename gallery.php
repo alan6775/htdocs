@@ -17,7 +17,7 @@ $breadcrumbs = [
 
 output_breadcrumbs($breadcrumbs);
 ?>
-    <h2 class="text-2xl font-bold text-slate-900 text-center mt-15">TEST CNC‑Fabricated Channel Letters & Logos</h2>
+    <h2 class="text-2xl font-bold text-slate-900 text-center mt-15">CNC‑Fabricated Channel Letters & Logos</h2>
     <!-- Gallery Grid -->
     <section class="mx-auto mt-12 max-w-6xl px-4">
 
