@@ -35,4 +35,4 @@ RewriteCond %{HTTP_ACCEPT} image/webp
 RewriteRule ^(.*)\.jpg$ $1.webp [T=image/webp,E=accept:1,L]
 
 RewriteRule ^blank$ / [R=301,L]
-RewriteRule ^blank-page$ / [R=301,L]
+RewriteRule ^blank-page$ /gallery [R=301,L]
