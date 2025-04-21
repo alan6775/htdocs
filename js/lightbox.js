@@ -12,17 +12,23 @@ imgs.forEach(wrapper => wrapper.addEventListener('click', () => {
     lightboxImg.src = img.src;
     const captionEl = wrapper.querySelector('figcaption span');
     lightboxCaption.textContent = captionEl ? captionEl.textContent : img.alt;
-    lightboxDescription.textContent = wrapper.dataset.description || ''; // Set the description
+    lightboxDescription.textContent = wrapper.dataset.description || '';
     lightbox.classList.remove('hidden');
     document.body.classList.add('overflow-hidden');
+
+    history.pushState({ lightbox: true }, ''); // Push state when lightbox opens
 }));
 
 const closeLightbox = () => {
     lightbox.classList.add('hidden');
     lightboxImg.src = '';
     lightboxCaption.textContent = '';
-    lightboxDescription.textContent = ''; // Clear the description
+    lightboxDescription.textContent = '';
     document.body.classList.remove('overflow-hidden');
+
+    if (history.state && history.state.lightbox) {
+        history.back(); // Go back one step in history if lightbox state
+    }
 };
 
 lightbox.addEventListener('click', (e) => {
@@ -37,4 +43,10 @@ lightbox.addEventListener('click', (e) => {
 });
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
+});
+
+window.addEventListener('popstate', (e) => {
+    if (lightbox && !lightbox.classList.contains('hidden')) {
+        closeLightbox();
+    }
 });
