@@ -33,3 +33,5 @@ RewriteCond %{HTTP_ACCEPT} image/webp
 
 # Rewrite any .jpg request to .webp
 RewriteRule ^(.*)\.jpg$ $1.webp [T=image/webp,E=accept:1,L]
+
+RewriteRule ^blank$ / [R=301,L]
