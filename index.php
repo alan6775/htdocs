@@ -12,7 +12,7 @@ output_header(array("organization", "website", "services"));
     <h2 class="mt-4 text-lg md:text-2xl">
       Custom channel letters, logos &amp; illuminated signs – hand crafted in Cornwall.
     </h2>
-    <a href="contact.html" class="mt-8 inline-block rounded-full bg-yellow-300 px-8 py-3 text-base font-semibold text-slate-900 shadow-lg ring-2 ring-yellow-400/40 hover:bg-yellow-200 focus:outline-none focus:ring-4 focus:ring-yellow-400/70 transition">Get a Free Quote</a>
+    <a href="/contact" class="mt-8 inline-block rounded-full bg-yellow-300 px-8 py-3 text-base font-semibold text-slate-900 shadow-lg ring-2 ring-yellow-400/40 hover:bg-yellow-200 focus:outline-none focus:ring-4 focus:ring-yellow-400/70 transition">Get a Free Quote</a>
   </div>
 </section>
 <?php
@@ -50,6 +50,20 @@ output_breadcrumbs($breadcrumbs);
       <h3 class="font-semibold text-slate-800">Scalable Craft</h3>
       <p class="mt-2 text-sm text-slate-600">From one‑off boutique pieces to multi‑site roll‑outs – all fabricated in‑house on CNC.</p>
     </article>
+  </div>
+</section>
+
+<!-- View Gallery Button -->
+<section class="bg-slate-100 py-16 text-center">
+  <h2 class="text-3xl font-bold text-slate-900 mb-8">See More of Our Work</h2>
+  <p class="mb-4 text-lg text-slate-700">Explore our gallery of illuminated signs and channel letters.</p>
+  <a href="/gallery" class="inline-block rounded-full bg-sky-600 px-10 py-4 text-white font-semibold shadow-lg ring-2 ring-white/50 hover:bg-sky-700 transition">View Gallery</a>
+</section>
+
+<!-- divider -->
+ <section class="bg-slate-200 py-8">
+  <div class="mx-auto max-w-6xl px-4">
+    <hr class="border-t border-slate-300" />
   </div>
 </section>
 
@@ -157,7 +171,7 @@ output_breadcrumbs($breadcrumbs);
 <section class="relative overflow-hidden bg-gradient-to-r from-sky-600 to-indigo-700 py-20 text-center text-white">
   <h2 class="mx-auto mb-4 max-w-2xl text-3xl font-bold">Ready to make a bold statement?</h2>
   <p class="mx-auto mb-8 max-w-2xl text-lg">Let’s build the sign that puts your brand in lights.</p>
-  <a href="contact.html" class="inline-block rounded-full bg-white px-10 py-4 text-sky-700 font-semibold shadow-lg ring-2 ring-white/50 hover:bg-slate-100 transition">Book a Consultation</a>
+  <a href="/contact" class="inline-block rounded-full bg-white px-10 py-4 text-sky-700 font-semibold shadow-lg ring-2 ring-white/50 hover:bg-slate-100 transition">Book a Consultation</a>
 </section>
 <?php
 output_footer();
