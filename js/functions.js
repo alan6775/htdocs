@@ -1,62 +1,49 @@
-// Helper functions for class manipulation
-const addClasses = (element, ...classes) => element?.classList.add(...classes);
-const removeClasses = (element, ...classes) => element?.classList.remove(...classes);
+$(document).ready(function () {
+    const $navToggle = $('#navToggle');
+    const $mobileNav = $('#mobileNav');
+    const $navClose = $('#navToggleClose');
+    const $header = $('#site-header');
 
-// Mobile nav
-document.addEventListener('DOMContentLoaded', () => {
-    const navToggle = document.getElementById('navToggle');
-    const mobileNav = document.getElementById('mobileNav');
-    const navClose = document.getElementById('navToggleClose');
+    // Initial state
+    $navClose.addClass('hidden');
+    $mobileNav.addClass('hidden');
+    $navToggle.removeClass('hidden');
 
-    navToggle?.addEventListener('click', () => {
-        removeClasses(mobileNav, 'hidden');
-        addClasses(navToggle, 'hidden');
-        removeClasses(navClose, 'hidden');
+    // Mobile nav toggle
+    $navToggle.on('click', function () {
+        $mobileNav.removeClass('hidden');
+        $navToggle.addClass('hidden');
+        $navClose.removeClass('hidden');
     });
 
-    navClose?.addEventListener('click', () => {
-        addClasses(mobileNav, 'hidden');
-        removeClasses(navToggle, 'hidden');
-        addClasses(navClose, 'hidden');
+    $navClose.on('click', function () {
+        $mobileNav.addClass('hidden');
+        $navToggle.removeClass('hidden');
+        $navClose.addClass('hidden');
     });
 
-    addClasses(navClose, 'hidden');
-    addClasses(mobileNav, 'hidden');
-    removeClasses(navToggle, 'hidden');
-
-    // Header blur
-    const header = document.getElementById('site-header');
+    // Header blur on scroll
     const blurHeader = () => {
-        window.scrollY > 10 ? addClasses(header, 'scrolled') : removeClasses(header, 'scrolled');
+        $(window).scrollTop() > 10 ? $header.addClass('scrolled') : $header.removeClass('scrolled');
     };
     blurHeader();
-    window.addEventListener('scroll', blurHeader);
+    $(window).on('scroll', blurHeader);
 
-    // Highlight active nav
-    const highlightActiveNav = () => {
-        const currentPath = window.location.pathname.replace(/\/$/, '').replace(/\.[^/.]+$/, '');
-        const navLinks = document.querySelectorAll('nav a');
-
-        navLinks.forEach(link => {
-            let linkPath = link.getAttribute('href')?.replace(/\/$/, '').replace(/\.[^/.]+$/, '') || '';
-            if (!linkPath.startsWith('/')) {
-                linkPath = '/' + linkPath;
-                if(linkPath === "/") {
-                    linkPath = '';
-                }
-            }
-            if (linkPath.trim() === currentPath.trim()) {
-                console.log(`Active link: ${linkPath}`); // Debugging line
-                addClasses(link, 'text-yellow-300', 'font-semibold');
-            } else {
-                removeClasses(link, 'text-yellow-300', 'font-semibold');
-            }
-        });
-    };
-
-    highlightActiveNav();
+    // Highlight active nav link
+    const currentPath = window.location.pathname.replace(/\/$/, '').replace(/\.[^/.]+$/, '');
+    $('nav a').each(function () {
+        let linkPath = $(this).attr('href')?.replace(/\/$/, '').replace(/\.[^/.]+$/, '') || '';
+        if (!linkPath.startsWith('/')) linkPath = '/' + linkPath;
+        if (linkPath === '/') linkPath = '';
+        if (linkPath.trim() === currentPath.trim()) {
+            $(this).addClass('text-yellow-300 font-semibold');
+        } else {
+            $(this).removeClass('text-yellow-300 font-semibold');
+        }
+    });
 });
 
-document.addEventListener('pageshow', () => {
-    console.log('Page loaded event triggered'); // Debugging line
+// Page show event (mainly for debugging)
+$(window).on('pageshow', function () {
+    console.log('Page loaded event triggered');
 });
