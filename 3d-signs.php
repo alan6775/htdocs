@@ -146,5 +146,6 @@ output_breadcrumbs($breadcrumbs);
     </section>
 </main>
 <?php
+
 output_footer('<script src="/js/lightbox.js"></script>');
 ?>
