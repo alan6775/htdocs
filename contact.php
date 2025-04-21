@@ -17,7 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $error = 'Please fill out all required fields.';
     } else {
         $body = "Name: " . $name . "\nEmail: " . $email . "\nPhone: " . $phone . "\n\nMessage:\n" . $message;
-        $headers = 'From: ' . $email;
+        $headers = 'From: admin@nccnc.co.uk' . "\r\n" .
+                   'Reply-To: ' . $email . "\r\n" .
+                   'X-Mailer: PHP/' . phpversion();
 
         if (mail($to, $subject, $body, $headers)) {
             $success = true;
