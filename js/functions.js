@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle?.addEventListener('click', () => {
         removeClasses(mobileNav, 'hidden');
         addClasses(navToggle, 'hidden');
+        removeClasses(navClose, 'hidden');
     });
 
     navClose?.addEventListener('click', () => {
